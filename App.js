@@ -8,7 +8,7 @@ buttons.forEach((button) => {
     activateBtn(el);
   });
 });
-//for button clickable 
+
 let active = "";
 function activateBtn(el) {
   if (el.target && !el.target.classList.contains("activate")) {
@@ -21,7 +21,7 @@ function activateBtn(el) {
     el.target.classList.remove("activate");
     active = "";
     input.value="";
-    result.innerHTML="";ē
+    result.innerHTML="";
     result.innerHTML=defaultElement();
   }
 }
@@ -30,11 +30,10 @@ searchBtn.addEventListener("click", () => {
     alert("Please select place or city or name.");
     return;
   }
-  if (input.value === "" ) {
+  if (input.value === "") {
     alert("Please enter something.");
     return;
   }
-                                                  VR
     fetch("https://isro.vercel.app/api/centres")
     .then((response) => {
         if(response.ok){
@@ -57,17 +56,13 @@ searchBtn.addEventListener("click", () => {
           result.innerHTML = "<div style='color:red'>Match not found!</div>";
         }
     })
-
     .catch((err)=>{
         result.innerHTML = `<div style='color:red'>${err}</div>`
     });
 });
 
 function createEl(el) {
-  let ele = `<div class="searchItems">
-  <div class="center"><h4>CENTER</h4><p>${el.name}</p>
-        </div>
-                <div class="city"><h4>CITY</h4><p>${el.Place}</p>
+  let ele = `<div class="searchItems"><div class="center"><h4>CENTER</h4><p>${el.name}</p></div><div class="city"><h4>CITY</h4><p>${el.Place}</p>
     </div>
     <div class="state">
         <h4>STATE</h4>
